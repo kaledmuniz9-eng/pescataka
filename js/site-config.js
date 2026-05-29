@@ -3,7 +3,7 @@
  */
 window.SITE_CONFIG = {
   apiUrl: 'https://geragerapiuxis.top/api-pescabrasil',
-  whatsappSuporte: '62998200334',
+  whatsappSuporte: '5562998200334',
   appAndroidUrl: '',
   appIosUrl: ''
 };
