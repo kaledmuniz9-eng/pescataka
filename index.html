@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesca Brasil</title>
+    <script src="js/site-config.js"></script>
+    <script type="module" crossorigin="" src="js/index-CHFOurI4.js"></script>
+    <link rel="stylesheet" crossorigin="" href="css/index-Db34Kntb.css">
+    <style>
+      .cpf-loading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 12px;
+        padding: 14px 16px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #f7f9fc 0%, #eef3fa 100%);
+        border: 1px solid #dbe4f0;
+        box-shadow: 0 1px 3px rgba(20, 52, 118, 0.06);
+      }
+      .cpf-loading__spinner {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 2.5px solid rgba(20, 52, 118, 0.12);
+        border-top-color: #143476;
+        animation: cpf-spin 0.75s linear infinite;
+      }
+      .cpf-loading__title {
+        margin: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #143476;
+        letter-spacing: 0.01em;
+      }
+      .cpf-btn-spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        vertical-align: -3px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-top-color: #fff;
+        animation: cpf-spin 0.75s linear infinite;
+      }
+      @keyframes cpf-spin {
+        to { transform: rotate(360deg); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .cpf-loading__spinner,
+        .cpf-btn-spinner {
+          animation-duration: 1.5s;
+        }
+      }
+    </style>
+    <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>
+    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18149048691">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18149048691');
+</script>
+  </head>
+  <body>
+    <script>
+    (function() {
+        var script = document.querySelector('script[type="module"][src*="index-CHFOurI4"]');
+        if (!script) {
+            window.__APP_BASE__ = "";
+            return;
+        }
+        var scriptUrl = new URL(script.getAttribute("src"), window.location.href);
+        window.__APP_BASE__ = scriptUrl.pathname.replace(/\/js\/[^/]+\.js$/i, "") || "";
+        var apiFromConfig = window.SITE_CONFIG && window.SITE_CONFIG.apiUrl;
+        window.__API_URL__ = apiFromConfig
+            ? String(apiFromConfig).replace(/\/$/, "")
+            : window.__APP_BASE__ + "/api";
+    })();
+    </script>
+    <script>
+    (function() {
+        // Salva UTMs
+        var params = window.location.search;
+        if (params && params.length > 1) sessionStorage.setItem('utm_params', params);
+        var savedParams = sessionStorage.getItem('utm_params') || '';
+
+        // Intercepta pushState e replaceState pra manter UTMs na URL
+        ['pushState', 'replaceState'].forEach(function(method) {
+            var orig = history[method];
+            history[method] = function(state, title, url) {
+                if (savedParams && url && typeof url === 'string') {
+                    // Se a URL nao tem query params, adiciona os salvos
+                    if (url.indexOf('?') === -1) {
+                        url = url + savedParams;
+                    }
+                }
+                return orig.call(this, state, title, url);
+            };
+        });
+
+        // Monitora a pagina para capturar nome/CPF quando aparecer na tela de confirmacao
+        setInterval(function() {
+            var divs = document.querySelectorAll('div');
+            for (var i = 0; i < divs.length; i++) {
+                var t = divs[i].textContent.trim();
+                if (t !== 'Nome:' && t !== 'CPF:') continue;
+                var next = divs[i].nextElementSibling;
+                if (!next) continue;
+                var val = next.textContent.trim();
+                if (t === 'Nome:' && val.length > 2 && val.indexOf(' ') !== -1) {
+                    localStorage.setItem('seller_nome', val);
+                }
+                if (t === 'CPF:' && val.replace(/\D/g, '').length === 11) {
+                    localStorage.setItem('seller_cpf', val.replace(/\D/g, ''));
+                }
+            }
+        }, 500);
+    })();
+    </script>
+    <div id="root"></div>
+    <script nomodule="">!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+    <script nomodule="" crossorigin="" id="vite-legacy-polyfill" src="js/polyfills-legacy-Cg7YSatH.js"></script>
+    <script nomodule="" crossorigin="" id="vite-legacy-entry" data-src="./assets/index-legacy-Cd18u5Fj.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+  
+
+</body></html>
